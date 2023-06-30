@@ -7,16 +7,14 @@ import {
   Spacer,
   Button,
 } from '@chakra-ui/react';
-import config from '../../config/config';
+import config from '../config/config';
+import { BottomNavBarInterface } from '../components/navbar/bottomNavbar';
 
-export default function Home() {
+export default function Home({ onSelectNav }: BottomNavBarInterface) {
   const { colorMode } = useColorMode();
 
   return (
-    <Box
-      m={'120px 0 0 0'}
-      // h={'80vh'}
-    >
+    <Box marginTop={'120px'}>
       <Highlight
         query="Nathaniel Gabriel Santos"
         styles={{
@@ -29,12 +27,12 @@ export default function Home() {
       >
         Nathaniel Gabriel Santos
       </Highlight>
-      <Box m={'66px 0 0 0'}>
+      <Box marginTop={'66px'}>
         <Text fontSize={'128px'} fontWeight="700">
           Software Engineer;
         </Text>
       </Box>
-      <Box m={'66px 0 0 0'}>
+      <Box marginTop={'66px'}>
         <Flex justifyContent={'space-between'}>
           <Box w={400}>
             <Text fontSize={'16px'} fontWeight="500">
@@ -52,7 +50,6 @@ export default function Home() {
               bg: colorMode === 'light' ? config.white : config.black,
               color: colorMode === 'light' ? config.black : config.white,
             }}
-            m={'0 0 0 25px'}
             style={{
               padding: '24px 49px',
               borderRadius: 0,
@@ -60,6 +57,7 @@ export default function Home() {
               background: colorMode === 'light' ? config.black : config.white,
               color: colorMode === 'light' ? config.white : config.black,
             }}
+            onClick={() => onSelectNav('/About')}
           >
             About Me
           </Button>
@@ -70,7 +68,7 @@ export default function Home() {
               bg: colorMode === 'light' ? config.black : config.white,
               color: colorMode === 'light' ? config.white : config.black,
             }}
-            m={'0 0 0 25px'}
+            marginLeft={'25px'}
             style={{
               padding: '24px 49px',
               borderRadius: 0,
@@ -79,6 +77,7 @@ export default function Home() {
               }`,
               fontSize: '16px',
             }}
+            onClick={() => onSelectNav('/Projects')}
           >
             Projects
           </Button>
