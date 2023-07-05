@@ -1,7 +1,7 @@
 export default {
   black: '#1B1C1E',
   white: '#FAFCFF',
-  margin: { base: '8%' },
+  margin: { base: '6%' },
 
   // const breakpoints = {
   //   sm: '30em', // 480px
@@ -28,7 +28,7 @@ export default {
     '2xl': '60px',
   },
   font_text: {
-    sm: '1em',
+    sm: '1.4em',
     base: '1em',
     md: '1.2em',
     lg: '1.2em',
@@ -36,7 +36,7 @@ export default {
     '2xl': '1.5em',
   },
   font_smallText: {
-    sm: '0.9em',
+    sm: '1.2em',
     base: '0.9em',
     md: '1.2em',
     lg: '1.2em',
@@ -44,8 +44,8 @@ export default {
     '2xl': '1.1em',
   },
   font_header: {
-    sm: '5em',
-    base: '5em',
+    sm: '7em',
+    base: '4.4em',
     md: '5em',
     lg: '8em',
     xl: '8em',
@@ -53,18 +53,8 @@ export default {
   },
   buttonPy: {
     base: '24px',
-    sm: '24px',
-    md: '24px',
-    lg: '24px',
-    xl: '24px',
-    '2xl': '24px',
   },
   buttonPx: {
     base: '24px',
-    sm: '24px',
-    md: '24px',
-    lg: '24px',
-    xl: '24px',
-    '2xl': '24px',
   },
 };
