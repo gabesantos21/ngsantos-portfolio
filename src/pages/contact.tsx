@@ -1,11 +1,6 @@
-import { Box, Button, Flex, HStack, Link, Text } from '@chakra-ui/react';
+import { Box, Flex, Link, Text } from '@chakra-ui/react';
 import config from '../config/config';
-import {
-  EmailIcon,
-  PhoneIcon,
-  ExternalLinkIcon,
-  CopyIcon,
-} from '@chakra-ui/icons';
+import { EmailIcon, PhoneIcon, ExternalLinkIcon } from '@chakra-ui/icons';
 import Animation from '../animation/revealAnimation';
 import TextFlip from '../animation/textFlip';
 import ColorSchemeToggle from '../service/colorToggle';
