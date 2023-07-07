@@ -4,7 +4,7 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 let interval = 0;
 
 export default function FlipTextAnimation(
-  event: React.MouseEvent<HTMLParagraphElement, MouseEvent>
+  event: React.MouseEvent<HTMLParagraphElement, MouseEvent>,
 ) {
   {
     let iteration = 0;

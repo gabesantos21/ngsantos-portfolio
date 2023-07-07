@@ -1,4 +1,4 @@
-import { Flex, Progress, Text } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import ColorSchemeToggle from '../service/colorToggle';
 
@@ -51,7 +51,7 @@ export default function InitialTransition() {
                 minH={'100vh'}
               >
                 <Text
-                  fontSize={90}
+                  fontSize={{ base: 30, md: 70, lg: 90 }}
                   fontWeight="400"
                   px={5}
                   style={{

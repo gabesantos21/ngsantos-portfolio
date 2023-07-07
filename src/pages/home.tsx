@@ -4,10 +4,11 @@ import { Link } from 'react-scroll';
 import Animation from '../animation/revealAnimation';
 import TextFlip from '../animation/textFlip';
 import ColorSchemeToggle from '../service/colorToggle';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
-    <Box mt={config.marginBig} minH={'100vh'}>
+    <Box mt={config.style.marginBig} minH={'100vh'}>
       <Animation>
         <Highlight
           query="Nathaniel Gabriel Santos"
@@ -16,16 +17,16 @@ export default function Home() {
             py: '7px',
             bg: ColorSchemeToggle('inverse'),
             color: ColorSchemeToggle(),
-            fontSize: config.font_text,
+            fontSize: config.style.font_text,
           }}
         >
           Nathaniel Gabriel Santos
         </Highlight>
       </Animation>
-      <Box mt={config.marginSmall}>
+      <Box mt={config.style.marginSmall}>
         <Animation>
           <Text
-            fontSize={config.font_header}
+            fontSize={config.style.font_header}
             fontWeight="700"
             data-value="Software Engineer;"
             onMouseOver={(e) => TextFlip(e)}
@@ -34,7 +35,7 @@ export default function Home() {
           </Text>
         </Animation>
       </Box>
-      <Box mt={config.marginSmall}>
+      <Box mt={config.style.marginSmall}>
         <Flex
           justifyContent={'space-between'}
           direction={{
@@ -49,7 +50,7 @@ export default function Home() {
           <Box pr={5}>
             <Animation>
               <Text
-                fontSize={config.font_smallText}
+                fontSize={config.style.font_smallText}
                 fontWeight="500"
                 justifyContent="justified"
                 w={{ sm: 400, base: 350 }}
@@ -71,47 +72,50 @@ export default function Home() {
                 '2xl': '0px',
               }}
               justify={'start'}
-              mb={{
-                sm: '100px',
-                base: '100px',
-                md: '100px',
-                lg: '0px',
-                xl: '0px',
-                '2xl': '0px',
-              }}
+              mb={config.style.marginSection}
               gap={5}
             >
               <Button
-                fontSize={config.font_smallText}
-                py={config.buttonPy}
-                px={config.buttonPx}
+                fontSize={config.style.font_smallText}
+                py={config.style.buttonPy}
+                px={config.style.buttonPx}
                 borderRadius={0}
                 style={{
                   background: `${ColorSchemeToggle('inverse')}`,
                   color: `${ColorSchemeToggle()}`,
                 }}
               >
-                <Link smooth spy to={'About'} offset={-100} duration={500}>
-                  About Me
-                </Link>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 1 }}
+                >
+                  <Link smooth spy to={'About'} offset={-100} duration={500}>
+                    About Me
+                  </Link>
+                </motion.button>
               </Button>
               <Button
-                fontSize={config.font_smallText}
+                fontSize={config.style.font_smallText}
                 _hover={{
                   bg: ColorSchemeToggle('inverse'),
                   color: ColorSchemeToggle(),
                 }}
                 ml={{ base: '0px', xl: '25px', '2xl': '25px' }}
-                py={config.buttonPy}
-                px={config.buttonPx}
+                py={config.style.buttonPy}
+                px={config.style.buttonPx}
                 style={{
                   borderRadius: 0,
                   border: `1px solid ${ColorSchemeToggle('inverse')}`,
                 }}
               >
-                <Link smooth spy to={'Projects'} offset={-100} duration={500}>
-                  Projects
-                </Link>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 1 }}
+                >
+                  <Link smooth spy to={'Projects'} offset={-100} duration={500}>
+                    Projects
+                  </Link>
+                </motion.button>
               </Button>
             </Flex>
           </Animation>

@@ -5,21 +5,22 @@ import { Link } from 'react-scroll';
 import Animation from '../animation/revealAnimation';
 import TextFlip from '../animation/textFlip';
 import ColorSchemeToggle from '../service/colorToggle';
+import { motion } from 'framer-motion';
 
 export default function About() {
   return (
     <Box id="About" minH={'100vh'}>
-      <Box mt={config.marginSmall}>
+      <Box mt={config.style.marginSmall}>
         <Animation>
           <Text
-            fontSize={config.font_header}
+            fontSize={config.style.font_header}
             fontWeight="700"
             data-value="About me;"
-            px={5}
-            _hover={{
-              bg: ColorSchemeToggle('inverse'),
-              color: ColorSchemeToggle(),
-            }}
+            // px={5}
+            // _hover={{
+            //   bg: ColorSchemeToggle('inverse'),
+            //   color: ColorSchemeToggle(),
+            // }}
             onMouseOver={(event) => TextFlip(event)}
           >
             About me;
@@ -48,7 +49,7 @@ export default function About() {
           flex={'1 1 0'}
         >
           <Animation>
-            <Text fontSize={config.font_text} fontWeight={400}>
+            <Text fontSize={config.style.font_text} fontWeight={400}>
               Hello there! <br /> <br /> I'm a passionate and skilled software
               engineer well-versed in Javascript, Python, and Java. With a
               strong knack for problem-solving, I strive to deliver efficient
@@ -62,26 +63,24 @@ export default function About() {
             <Button
               mt={'50px'}
               alignSelf={'Start'}
-              fontSize={config.font_smallText}
-              py={config.buttonPy}
-              px={config.buttonPx}
+              fontSize={config.style.font_smallText}
+              py={config.style.buttonPy}
+              px={config.style.buttonPx}
               borderRadius={0}
               style={{
                 background: ColorSchemeToggle('inverse'),
                 color: ColorSchemeToggle(),
               }}
-              mb={{
-                sm: '100px',
-                base: '100px',
-                md: '100px',
-                lg: '0px',
-                xl: '0px',
-                '2xl': '0px',
-              }}
+              mb={config.style.marginSection}
             >
-              <Link smooth spy to={'Contact'} offset={-100} duration={500}>
-                Let's Connect
-              </Link>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 1 }}
+              >
+                <Link smooth spy to={'Contact'} offset={-100} duration={500}>
+                  Let's Connect
+                </Link>
+              </motion.button>
             </Button>
           </Animation>
         </Flex>

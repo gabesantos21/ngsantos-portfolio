@@ -1,16 +1,10 @@
-export default {
+const color = {
   black: '#1B1C1E',
   white: '#FAFCFF',
+};
+
+const style = {
   margin: { base: '6%' },
-
-  // const breakpoints = {
-  //   sm: '30em', // 480px
-  //   md: '48em', // 768px
-  //   lg: '62em', // 992px
-  //   xl: '80em', // 1280px
-  //   '2xl': '96em', // 1536px
-  // }
-
   marginBig: {
     sm: '100px',
     base: '120px',
@@ -26,6 +20,14 @@ export default {
     lg: '30px',
     xl: '30px',
     '2xl': '60px',
+  },
+  marginSection: {
+    sm: '100px',
+    base: '100px',
+    md: '100px',
+    lg: '0px',
+    xl: '0px',
+    '2xl': '0px',
   },
   font_text: {
     sm: '1.4em',
@@ -57,4 +59,9 @@ export default {
   buttonPx: {
     base: '24px',
   },
+};
+
+export default {
+  color,
+  style,
 };

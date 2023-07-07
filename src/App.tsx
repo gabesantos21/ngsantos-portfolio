@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <InitialTransition />
-      <Box m={config.margin}>
+      <Box m={config.style.margin}>
         <Nav />
         <Home />
         <About />

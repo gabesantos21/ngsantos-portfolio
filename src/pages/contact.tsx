@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Link, Text} from '@chakra-ui/react';
+import { Box, Flex, HStack, Link, Text } from '@chakra-ui/react';
 import config from '../config/config';
 import {
   EmailIcon,
@@ -13,17 +13,17 @@ import ColorSchemeToggle from '../service/colorToggle';
 export default function Contact() {
   return (
     <Box id="Contact" minH={'100vh'}>
-      <Box mt={config.marginSmall}>
+      <Box mt={config.style.marginSmall}>
         <Animation>
           <Text
-            fontSize={config.font_header}
+            fontSize={config.style.font_header}
             fontWeight="700"
             data-value={'Contact;'}
-            px={5}
-            _hover={{
-              bg: ColorSchemeToggle('inverse'),
-              color: ColorSchemeToggle(),
-            }}
+            // px={5}
+            // _hover={{
+            //   bg: ColorSchemeToggle('inverse'),
+            //   color: ColorSchemeToggle(),
+            // }}
             onMouseOver={(event) => TextFlip(event)}
           >
             Contact;
@@ -39,7 +39,7 @@ export default function Contact() {
       >
         <Animation>
           <Text
-            fontSize={config.font_text}
+            fontSize={config.style.font_text}
             fontWeight={300}
             textAlign={'center'}
             lineHeight={10}
@@ -81,7 +81,10 @@ export default function Contact() {
               }}
             >
               <EmailIcon color={ColorSchemeToggle()} />
-              <Text color={ColorSchemeToggle()} fontSize={config.font_text}>
+              <Text
+                color={ColorSchemeToggle()}
+                fontSize={config.style.font_text}
+              >
                 gabesantos726@gmail.com
               </Text>
               <CopyIcon color={ColorSchemeToggle()} />
@@ -99,7 +102,10 @@ export default function Contact() {
               }}
             >
               <PhoneIcon color={ColorSchemeToggle()} />
-              <Text color={ColorSchemeToggle()} fontSize={config.font_text}>
+              <Text
+                color={ColorSchemeToggle()}
+                fontSize={config.style.font_text}
+              >
                 +63 (905) 406-5822
               </Text>
               <CopyIcon color={ColorSchemeToggle()} />

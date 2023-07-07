@@ -12,12 +12,17 @@ import config from '../../config/config';
 import { Link } from 'react-scroll';
 import Animation from '../../animation/revealAnimation';
 import ColorSchemeToggle from '../../service/colorToggle';
+import data from '../../config/data';
 
 export default function BottomNavBar() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box position={'fixed'} right={config.margin} bottom={config.margin}>
+    <Box
+      position={'fixed'}
+      right={config.style.margin}
+      bottom={config.style.margin}
+    >
       <Collapse in={isOpen}>
         <MobileNav />
       </Collapse>
@@ -100,7 +105,7 @@ const DesktopNav = () => {
               activeStyle={{
                 background: ColorSchemeToggle('inverse'),
                 color: ColorSchemeToggle(),
-                fontSize: `${config.font_text}`,
+                fontSize: `${config.style.font_text}`,
               }}
               smooth
               spy
@@ -116,7 +121,7 @@ const DesktopNav = () => {
             </Link>
           </Button>
         </Box>
-        {NAV_ITEMS.map((navItem) => (
+        {data.NAV_ITEMS.map((navItem) => (
           <Box key={navItem.title}>
             {navItem.title !== 'Download CV' && (
               <Button
@@ -135,7 +140,7 @@ const DesktopNav = () => {
                   activeStyle={{
                     background: ColorSchemeToggle('inverse'),
                     color: ColorSchemeToggle(),
-                    fontSize: `${config.font_text}`,
+                    fontSize: `${config.style.font_text}`,
                     width: '100%',
                   }}
                   smooth
@@ -161,7 +166,7 @@ const DesktopNav = () => {
 const MobileNav = () => {
   return (
     <Stack pb={4} display={{ md: 'none' }} bg={ColorSchemeToggle()}>
-      {NAV_ITEMS.map((navItem) => (
+      {data.NAV_ITEMS.map((navItem) => (
         <Stack key={navItem.title}>
           <Button
             justifyContent={'end'}
@@ -189,7 +194,7 @@ const MobileNav = () => {
               duration={500}
               style={{
                 padding: '9px 12px',
-                fontSize: `${config.font_text}`,
+                fontSize: `${config.style.font_text}`,
                 width: '100%',
                 textAlign: 'end',
               }}
@@ -202,36 +207,3 @@ const MobileNav = () => {
     </Stack>
   );
 };
-
-export interface BottomNavBarInterface {
-  active?: string;
-  onSelectNav: (nav: string) => void;
-}
-
-interface NavItem {
-  title: string;
-  href: string;
-}
-
-const NAV_ITEMS: Array<NavItem> = [
-  {
-    title: 'Download CV',
-    href: '#',
-  },
-  {
-    title: 'Home',
-    href: '/',
-  },
-  {
-    title: 'About',
-    href: '/About',
-  },
-  {
-    title: 'Projects',
-    href: '/Projects',
-  },
-  {
-    title: 'Contact',
-    href: '/Contact',
-  },
-];
