@@ -3,7 +3,7 @@ import logo from '../../assets/logo.png';
 import logoDark from '../../assets/logo-dark.png';
 import moon from '../../assets/toggle-color-mode-switch-light.png';
 import sun from '../../assets/toggle-color-mode-switch-dark.png';
-import Animation from '../../animation/animationWrapper';
+import Animation from '../../animation/revealAnimation';
 
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();

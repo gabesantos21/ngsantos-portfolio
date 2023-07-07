@@ -2,7 +2,7 @@ import config from '../config/config';
 import { Box, Flex, Text, Image, Button, useColorMode } from '@chakra-ui/react';
 import memoji from '../assets/memoji.png';
 import { Link } from 'react-scroll';
-import Animation from '../animation/animationWrapper';
+import Animation from '../animation/revealAnimation';
 import TextFlip from '../animation/textFlip';
 
 export default function About() {

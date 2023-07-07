@@ -11,7 +11,7 @@ import {
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import config from '../../config/config';
 import { Link } from 'react-scroll';
-import Animation from '../../animation/animationWrapper';
+import Animation from '../../animation/revealAnimation';
 
 export default function BottomNavBar() {
   const { isOpen, onToggle } = useDisclosure();

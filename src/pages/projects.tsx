@@ -1,6 +1,6 @@
 import { Box, Text, useColorMode } from '@chakra-ui/react';
 import config from '../config/config';
-import Animation from '../animation/animationWrapper';
+import Animation from '../animation/revealAnimation';
 import TextFlip from '../animation/textFlip';
 
 export default function Projects() {
