@@ -1,11 +1,10 @@
-import { Box, Text, useColorMode } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import config from '../config/config';
 import Animation from '../animation/revealAnimation';
 import TextFlip from '../animation/textFlip';
+import ColorSchemeToggle from '../service/colorToggle';
 
 export default function Projects() {
-  const { colorMode } = useColorMode();
-
   return (
     <Box id="Projects" minH={'100vh'}>
       <Box mt={config.marginSmall}>
@@ -16,8 +15,8 @@ export default function Projects() {
             data-value={'Projects;'}
             px={5}
             _hover={{
-              bg: colorMode === 'dark' ? config.white : config.black,
-              color: colorMode === 'light' ? config.white : config.black,
+              bg: ColorSchemeToggle('inverse'),
+              color: ColorSchemeToggle(),
             }}
             onMouseOver={(event) => TextFlip(event)}
           >

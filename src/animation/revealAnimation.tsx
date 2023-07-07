@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { motion, useInView, useAnimation } from 'framer-motion';
-import { useColorMode } from '@chakra-ui/react';
-import config from '../config/config';
+import ColorSchemeToggle from '../service/colorToggle';
 
 interface Props {
   children: JSX.Element | JSX.Element[];
@@ -9,7 +8,6 @@ interface Props {
 }
 
 export default function Animation({ children, width = 'fit-content' }: Props) {
-  const { colorMode } = useColorMode();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
 
@@ -50,7 +48,7 @@ export default function Animation({ children, width = 'fit-content' }: Props) {
           bottom: 4,
           left: 0,
           right: 0,
-          background: colorMode === 'dark' ? config.white : config.black,
+          background: ColorSchemeToggle('inverse'),
           zIndex: 20,
         }}
       />

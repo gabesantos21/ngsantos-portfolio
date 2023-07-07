@@ -1,12 +1,16 @@
-import { Box, Flex, HStack, Link, Text, useColorMode } from '@chakra-ui/react';
+import { Box, Flex, HStack, Link, Text} from '@chakra-ui/react';
 import config from '../config/config';
-import { EmailIcon, PhoneIcon, ExternalLinkIcon } from '@chakra-ui/icons';
+import {
+  EmailIcon,
+  PhoneIcon,
+  ExternalLinkIcon,
+  CopyIcon,
+} from '@chakra-ui/icons';
 import Animation from '../animation/revealAnimation';
 import TextFlip from '../animation/textFlip';
+import ColorSchemeToggle from '../service/colorToggle';
 
 export default function Contact() {
-  const { colorMode } = useColorMode();
-
   return (
     <Box id="Contact" minH={'100vh'}>
       <Box mt={config.marginSmall}>
@@ -17,8 +21,8 @@ export default function Contact() {
             data-value={'Contact;'}
             px={5}
             _hover={{
-              bg: colorMode === 'dark' ? config.white : config.black,
-              color: colorMode === 'light' ? config.white : config.black,
+              bg: ColorSchemeToggle('inverse'),
+              color: ColorSchemeToggle(),
             }}
             onMouseOver={(event) => TextFlip(event)}
           >
@@ -53,7 +57,7 @@ export default function Contact() {
           </Text>
         </Animation>
         <Flex
-          bg={colorMode === 'dark' ? config.white : config.black}
+          bg={ColorSchemeToggle('inverse')}
           justifyContent={'space-evenly'}
           alignItems={'center'}
           direction={{
@@ -76,15 +80,11 @@ export default function Contact() {
                 '2xl': '21px',
               }}
             >
-              <EmailIcon
-                color={colorMode === 'dark' ? config.black : config.white}
-              />
-              <Text
-                color={colorMode === 'dark' ? config.black : config.white}
-                fontSize={config.font_text}
-              >
+              <EmailIcon color={ColorSchemeToggle()} />
+              <Text color={ColorSchemeToggle()} fontSize={config.font_text}>
                 gabesantos726@gmail.com
               </Text>
+              <CopyIcon color={ColorSchemeToggle()} />
             </HStack>
           </Animation>
           <Animation>
@@ -98,15 +98,11 @@ export default function Contact() {
                 '2xl': '21px',
               }}
             >
-              <PhoneIcon
-                color={colorMode === 'dark' ? config.black : config.white}
-              />
-              <Text
-                color={colorMode === 'dark' ? config.black : config.white}
-                fontSize={config.font_text}
-              >
+              <PhoneIcon color={ColorSchemeToggle()} />
+              <Text color={ColorSchemeToggle()} fontSize={config.font_text}>
                 +63 (905) 406-5822
               </Text>
+              <CopyIcon color={ColorSchemeToggle()} />
             </HStack>
           </Animation>
         </Flex>

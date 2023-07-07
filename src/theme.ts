@@ -1,12 +1,12 @@
-import { ThemeComponentProps, extendTheme } from '@chakra-ui/react';
-import config from './config/config';
+import { extendTheme } from '@chakra-ui/react';
+import ColorSchemeToggle from './service/colorToggle';
 
 const theme = extendTheme({
   config: { initialColorMode: 'dark' },
   styles: {
-    global: ({ colorMode }: ThemeComponentProps) => ({
+    global: () => ({
       body: {
-        bg: colorMode === 'dark' ? config.black : config.white,
+        bg: ColorSchemeToggle(),
       },
     }),
   },

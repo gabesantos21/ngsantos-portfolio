@@ -1,18 +1,11 @@
-import {
-  Box,
-  Highlight,
-  useColorMode,
-  Text,
-  Flex,
-  Button,
-} from '@chakra-ui/react';
+import { Box, Highlight, Text, Flex, Button } from '@chakra-ui/react';
 import config from '../config/config';
 import { Link } from 'react-scroll';
 import Animation from '../animation/revealAnimation';
 import TextFlip from '../animation/textFlip';
+import ColorSchemeToggle from '../service/colorToggle';
 
 export default function Home() {
-  const { colorMode } = useColorMode();
   return (
     <Box mt={config.marginBig} minH={'100vh'}>
       <Animation>
@@ -21,8 +14,8 @@ export default function Home() {
           styles={{
             px: '5px',
             py: '7px',
-            bg: colorMode === 'light' ? config.black : config.white,
-            color: colorMode === 'light' ? config.white : config.black,
+            bg: ColorSchemeToggle('inverse'),
+            color: ColorSchemeToggle(),
             fontSize: config.font_text,
           }}
         >
@@ -90,17 +83,12 @@ export default function Home() {
             >
               <Button
                 fontSize={config.font_smallText}
-                _hover={{
-                  bg: colorMode === 'light' ? config.white : config.black,
-                  color: colorMode === 'light' ? config.black : config.white,
-                }}
                 py={config.buttonPy}
                 px={config.buttonPx}
                 borderRadius={0}
                 style={{
-                  background:
-                    colorMode === 'light' ? config.black : config.white,
-                  color: colorMode === 'light' ? config.white : config.black,
+                  background: `${ColorSchemeToggle('inverse')}`,
+                  color: `${ColorSchemeToggle()}`,
                 }}
               >
                 <Link smooth spy to={'About'} offset={-100} duration={500}>
@@ -110,17 +98,15 @@ export default function Home() {
               <Button
                 fontSize={config.font_smallText}
                 _hover={{
-                  bg: colorMode === 'light' ? config.black : config.white,
-                  color: colorMode === 'light' ? config.white : config.black,
+                  bg: ColorSchemeToggle('inverse'),
+                  color: ColorSchemeToggle(),
                 }}
                 ml={{ base: '0px', xl: '25px', '2xl': '25px' }}
                 py={config.buttonPy}
                 px={config.buttonPx}
                 style={{
                   borderRadius: 0,
-                  border: `1px solid ${
-                    colorMode === 'light' ? config.black : config.white
-                  }`,
+                  border: `1px solid ${ColorSchemeToggle('inverse')}`,
                 }}
               >
                 <Link smooth spy to={'Projects'} offset={-100} duration={500}>

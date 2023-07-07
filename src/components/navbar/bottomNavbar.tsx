@@ -6,16 +6,15 @@ import {
   Collapse,
   useDisclosure,
   Button,
-  useColorMode,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import config from '../../config/config';
 import { Link } from 'react-scroll';
 import Animation from '../../animation/revealAnimation';
+import ColorSchemeToggle from '../../service/colorToggle';
 
 export default function BottomNavBar() {
   const { isOpen, onToggle } = useDisclosure();
-  // const { colorMode } = useColorMode();
 
   return (
     <Box position={'fixed'} right={config.margin} bottom={config.margin}>
@@ -54,15 +53,13 @@ export default function BottomNavBar() {
 }
 
 const DesktopNav = () => {
-  const { colorMode } = useColorMode();
-
   return (
     <Animation>
       <Stack
         direction={'row'}
         gap={'25px'}
         justifyContent={'end'}
-        bg={colorMode === 'dark' ? config.black : config.white}
+        bg={ColorSchemeToggle()}
         p={2}
       >
         <Box>
@@ -94,16 +91,15 @@ const DesktopNav = () => {
             borderRadius={0}
             p={0}
             _hover={{
-              bg: colorMode === 'light' ? config.black : config.white,
-              color: colorMode === 'light' ? config.white : config.black,
+              bg: ColorSchemeToggle('inverse'),
+              color: ColorSchemeToggle(),
             }}
           >
             <Link
               activeClass="active"
               activeStyle={{
-                background: colorMode === 'light' ? config.black : config.white,
-                color: colorMode === 'light' ? config.white : config.black,
-
+                background: ColorSchemeToggle('inverse'),
+                color: ColorSchemeToggle(),
                 fontSize: `${config.font_text}`,
               }}
               smooth
@@ -113,9 +109,7 @@ const DesktopNav = () => {
               duration={500}
               style={{
                 padding: '9px 12px',
-                border: `1px solid ${
-                  colorMode === 'light' ? config.black : config.white
-                }`,
+                border: `1px solid ${ColorSchemeToggle('inverse')}`,
               }}
             >
               Download CV
@@ -132,16 +126,15 @@ const DesktopNav = () => {
                 borderRadius={0}
                 p={0}
                 _hover={{
-                  bg: colorMode === 'light' ? config.black : config.white,
-                  color: colorMode === 'light' ? config.white : config.black,
+                  bg: ColorSchemeToggle('inverse'),
+                  color: ColorSchemeToggle(),
                 }}
               >
                 <Link
                   activeClass="active"
                   activeStyle={{
-                    background:
-                      colorMode === 'light' ? config.black : config.white,
-                    color: colorMode === 'light' ? config.white : config.black,
+                    background: ColorSchemeToggle('inverse'),
+                    color: ColorSchemeToggle(),
                     fontSize: `${config.font_text}`,
                     width: '100%',
                   }}
@@ -166,14 +159,8 @@ const DesktopNav = () => {
 };
 
 const MobileNav = () => {
-  const { colorMode } = useColorMode();
-
   return (
-    <Stack
-      pb={4}
-      display={{ md: 'none' }}
-      bg={colorMode === 'light' ? config.white : config.black}
-    >
+    <Stack pb={4} display={{ md: 'none' }} bg={ColorSchemeToggle()}>
       {NAV_ITEMS.map((navItem) => (
         <Stack key={navItem.title}>
           <Button
@@ -185,16 +172,16 @@ const MobileNav = () => {
             borderRadius={0}
             p={0}
             _hover={{
-              bg: colorMode === 'light' ? config.black : config.white,
-              color: colorMode === 'light' ? config.white : config.black,
+              bg: ColorSchemeToggle('inverse'),
+              color: ColorSchemeToggle(),
             }}
             zIndex={999}
           >
             <Link
               activeClass="active"
               activeStyle={{
-                background: colorMode === 'light' ? config.black : config.white,
-                color: colorMode === 'light' ? config.white : config.black,
+                background: ColorSchemeToggle('inverse'),
+                color: ColorSchemeToggle(),
               }}
               smooth
               spy

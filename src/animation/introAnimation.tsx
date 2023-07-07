@@ -1,21 +1,13 @@
-import {  Flex, Text, useColorMode,  } from '@chakra-ui/react';
+import { Flex, Progress, Text } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-
-import config from '../config/config';
+import ColorSchemeToggle from '../service/colorToggle';
 
 export default function InitialTransition() {
-  const { colorMode } = useColorMode();
-
   return (
     <Flex justifyContent={'center'} alignContent={'center'}>
       <motion.div
-        initial="initial"
         animate="animate"
         variants={{
-          initial: {
-            height: '100vh',
-            bottom: 0,
-          },
           animate: {
             height: 0,
             opacity: 0,
@@ -31,13 +23,12 @@ export default function InitialTransition() {
         style={{
           zIndex: 50,
           width: '100%',
-          background: colorMode === 'dark' ? config.black : config.white,
+          background: ColorSchemeToggle(),
         }}
       >
         <Flex justifyContent={'center'} alignItems={'center'}>
           <Text fontSize={90} fontWeight="700" data-value="About me;" px={5}>
             <motion.div
-              initial="initial"
               animate="animate"
               variants={{
                 animate: {
@@ -51,7 +42,7 @@ export default function InitialTransition() {
               style={{
                 zIndex: 50,
                 width: '100%',
-                background: colorMode === 'dark' ? config.black : config.white,
+                background: ColorSchemeToggle(),
               }}
             >
               <Flex
@@ -62,13 +53,12 @@ export default function InitialTransition() {
                 <Text
                   fontSize={90}
                   fontWeight="400"
-                  data-value="About me;"
                   px={5}
                   style={{
-                    color: colorMode === 'dark' ? config.white : config.black,
+                    color: ColorSchemeToggle('inverse'),
                   }}
                 >
-                  ngsantos |  portfolio
+                  ngsantos | portfolio
                 </Text>
               </Flex>
             </motion.div>

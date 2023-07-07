@@ -1,13 +1,12 @@
 import config from '../config/config';
-import { Box, Flex, Text, Image, Button, useColorMode } from '@chakra-ui/react';
+import { Box, Flex, Text, Image, Button } from '@chakra-ui/react';
 import memoji from '../assets/memoji.png';
 import { Link } from 'react-scroll';
 import Animation from '../animation/revealAnimation';
 import TextFlip from '../animation/textFlip';
+import ColorSchemeToggle from '../service/colorToggle';
 
 export default function About() {
-  const { colorMode } = useColorMode();
-
   return (
     <Box id="About" minH={'100vh'}>
       <Box mt={config.marginSmall}>
@@ -18,8 +17,8 @@ export default function About() {
             data-value="About me;"
             px={5}
             _hover={{
-              bg: colorMode === 'dark' ? config.white : config.black,
-              color: colorMode === 'light' ? config.white : config.black,
+              bg: ColorSchemeToggle('inverse'),
+              color: ColorSchemeToggle(),
             }}
             onMouseOver={(event) => TextFlip(event)}
           >
@@ -64,16 +63,12 @@ export default function About() {
               mt={'50px'}
               alignSelf={'Start'}
               fontSize={config.font_smallText}
-              _hover={{
-                bg: colorMode === 'light' ? config.black : config.white,
-                color: colorMode === 'light' ? config.white : config.black,
-              }}
               py={config.buttonPy}
               px={config.buttonPx}
               borderRadius={0}
               style={{
-                background: colorMode === 'light' ? config.black : config.white,
-                color: colorMode === 'light' ? config.white : config.black,
+                background: ColorSchemeToggle('inverse'),
+                color: ColorSchemeToggle(),
               }}
               mb={{
                 sm: '100px',
