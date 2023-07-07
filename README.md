@@ -11,6 +11,4 @@ Welcome to my personal portfolio! This repository showcases my skills, projects,
 - **Skills & Expertise**: Get insights into my technical skills and expertise in various technologies, programming languages, frameworks, and tools.
 - **Contact Me**: Connect with me through the provided contact details, such as email and social media links, to discuss potential collaborations or opportunities.
 
-## License
-
 Thank you for visiting my portfolio. I hope you find it informative and engaging! If you have any questions or would like to get in touch, don't hesitate to reach out.
