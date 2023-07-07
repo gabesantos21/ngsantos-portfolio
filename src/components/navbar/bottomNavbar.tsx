@@ -121,7 +121,7 @@ const DesktopNav = () => {
             </Link>
           </Button>
         </Box>
-        {data.NAV_ITEMS.map((navItem) => (
+        {data.navItems.map((navItem) => (
           <Box key={navItem.title}>
             {navItem.title !== 'Download CV' && (
               <Button
@@ -166,7 +166,7 @@ const DesktopNav = () => {
 const MobileNav = () => {
   return (
     <Stack pb={4} display={{ md: 'none' }} bg={ColorSchemeToggle()}>
-      {data.NAV_ITEMS.map((navItem) => (
+      {data.navItems.map((navItem) => (
         <Stack key={navItem.title}>
           <Button
             justifyContent={'end'}

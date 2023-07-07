@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Link, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, HStack, Link, Text } from '@chakra-ui/react';
 import config from '../config/config';
 import {
   EmailIcon,
@@ -9,6 +9,7 @@ import {
 import Animation from '../animation/revealAnimation';
 import TextFlip from '../animation/textFlip';
 import ColorSchemeToggle from '../service/colorToggle';
+import data from '../config/data';
 
 export default function Contact() {
   return (
@@ -46,11 +47,11 @@ export default function Contact() {
           >
             Feel free to drop me an email or sms if you'd like to connect.
             Alternatively, you can find me on{' '}
-            <Link fontWeight={500}>
+            <Link fontWeight={500} href={data.credentials.linkedIn} isExternal>
               LinkedIn <ExternalLinkIcon />{' '}
             </Link>{' '}
             or{' '}
-            <Link fontWeight={500}>
+            <Link fontWeight={500} href={data.credentials.github} isExternal>
               Github <ExternalLinkIcon />
             </Link>{' '}
             for a quicker response. I look forward to hearing from you!
@@ -58,8 +59,8 @@ export default function Contact() {
         </Animation>
         <Flex
           bg={ColorSchemeToggle('inverse')}
-          justifyContent={'space-evenly'}
-          alignItems={'center'}
+          justify="center"
+          align="center"
           direction={{
             base: 'column',
             md: 'column',
@@ -68,9 +69,18 @@ export default function Contact() {
             '2xl': 'row',
           }}
           mt={'40px'}
+          fontSize={{
+            base: '1.4em',
+            sm: '1.4em',
+            md: '1em',
+            lg: '1em',
+            xl: '1.5em',
+            '2xl': '1.5em',
+          }}
         >
           <Animation>
-            <HStack
+            <Flex
+              align={'center'}
               gap={5}
               p={{
                 base: '12px',
@@ -81,17 +91,12 @@ export default function Contact() {
               }}
             >
               <EmailIcon color={ColorSchemeToggle()} />
-              <Text
-                color={ColorSchemeToggle()}
-                fontSize={config.style.font_text}
-              >
-                gabesantos726@gmail.com
-              </Text>
-              <CopyIcon color={ColorSchemeToggle()} />
-            </HStack>
+              <Text color={ColorSchemeToggle()}>gabesantos726@gmail.com</Text>
+            </Flex>
           </Animation>
           <Animation>
-            <HStack
+            <Flex
+              align={'center'}
               gap={5}
               p={{
                 base: '12px',
@@ -102,14 +107,8 @@ export default function Contact() {
               }}
             >
               <PhoneIcon color={ColorSchemeToggle()} />
-              <Text
-                color={ColorSchemeToggle()}
-                fontSize={config.style.font_text}
-              >
-                +63 (905) 406-5822
-              </Text>
-              <CopyIcon color={ColorSchemeToggle()} />
-            </HStack>
+              <Text color={ColorSchemeToggle()}>+63 (905) 406-5822</Text>
+            </Flex>
           </Animation>
         </Flex>
       </Flex>

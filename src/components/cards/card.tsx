@@ -1,9 +1,9 @@
 import {
-  Badge,
   Box,
   Button,
   Center,
   Heading,
+  Icon,
   Image,
   SimpleGrid,
   Text,
@@ -20,18 +20,9 @@ export default function Card(data: CardProps) {
         objectFit="cover"
         mx="auto"
       />
-      <SimpleGrid columns={4} spacing={'5px 10px'} mt={'5'}>
+      <SimpleGrid columns={10} spacing={'5px 10px'} mt={'5'}>
         {data.tags.map((item) => (
-          <Badge
-            borderColor={ColorSchemeToggle('inverse')}
-            border={'1px solid'}
-            color={ColorSchemeToggle()}
-            bg={ColorSchemeToggle('inverse')}
-            fontSize={{ base: 12, md: 8, lg: 12 }}
-            borderRadius="none"
-          >
-            {item}
-          </Badge>
+          <Icon as={item} color={ColorSchemeToggle()} />
         ))}
       </SimpleGrid>
       <Heading my="4" size="lg" color={ColorSchemeToggle()}>
