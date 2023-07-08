@@ -19,6 +19,7 @@ export default function Card(data: CardProps) {
         alt="Svartifoss Waterfall"
         objectFit="cover"
         mx="auto"
+        h="300px"
       />
       <SimpleGrid columns={10} spacing={'5px 10px'} mt={'5'}>
         {data.tags.map((item) => (
