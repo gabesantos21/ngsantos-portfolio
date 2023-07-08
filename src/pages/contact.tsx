@@ -65,8 +65,7 @@ export default function Contact() {
           }}
           mt={'40px'}
           fontSize={{
-            base: '1.4em',
-            sm: '1.4em',
+            base: '.75em',
             md: '1em',
             lg: '1em',
             xl: '1.5em',
