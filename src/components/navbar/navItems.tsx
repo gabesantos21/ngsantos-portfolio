@@ -6,7 +6,6 @@ import {
   Collapse,
   useDisclosure,
   Button,
-  Image,
   useColorMode,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
@@ -15,8 +14,6 @@ import { Link } from 'react-scroll';
 import Animation from '../../animation/revealAnimation';
 import ColorSchemeToggle from '../../service/colorToggle';
 import data from '../../config/data';
-import moon from '../../assets/toggle-color-mode-switch-light.png';
-import sun from '../../assets/toggle-color-mode-switch-dark.png';
 import { BsSun } from 'react-icons/bs';
 import { BiSolidMoon } from 'react-icons/bi';
 import { motion } from 'framer-motion';
