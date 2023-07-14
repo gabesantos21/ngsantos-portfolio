@@ -26,7 +26,7 @@ export default function Projects() {
         </Animation>
         <Box as="section" mt={'60px'}>
           <Center>
-            <SimpleGrid columns={[1, 1, 2, 3, 3]} spacing="60px">
+            <SimpleGrid columns={[1, 1, 1, 2, 3]} spacing="60px">
               {data.projects.map((project) => (
                 <Animation>
                   <Card

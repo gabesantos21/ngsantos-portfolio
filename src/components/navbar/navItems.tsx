@@ -6,6 +6,8 @@ import {
   Collapse,
   useDisclosure,
   Button,
+  Image,
+  useColorMode,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import config from '../../config/config';
@@ -13,28 +15,26 @@ import { Link } from 'react-scroll';
 import Animation from '../../animation/revealAnimation';
 import ColorSchemeToggle from '../../service/colorToggle';
 import data from '../../config/data';
+import moon from '../../assets/toggle-color-mode-switch-light.png';
+import sun from '../../assets/toggle-color-mode-switch-dark.png';
+import { BsSun } from 'react-icons/bs';
+import { BiSolidMoon } from 'react-icons/bi';
+import { motion } from 'framer-motion';
 
-export default function BottomNavBar() {
+export default function NavItems() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box
-      position={'fixed'}
-      right={config.style.margin}
-      bottom={config.style.margin}
-    >
-      <Collapse in={isOpen}>
-        <MobileNav />
-      </Collapse>
+    <Box>
       <Flex alignItems="end">
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Flex display={{ base: 'none', md: 'flex' }}>
+          <Flex display={{ base: 'none', sm: 'none', lg: 'flex' }}>
             <DesktopNav />
           </Flex>
         </Flex>
         <Flex
           flex={{ base: 1, md: 'auto' }}
-          display={{ base: 'flex', md: 'none' }}
+          display={{ base: 'flex', lg: 'none' }}
           justifyContent="end"
         >
           <Animation>
@@ -53,11 +53,16 @@ export default function BottomNavBar() {
           </Animation>
         </Flex>
       </Flex>
+      <Collapse in={isOpen}>
+        <MobileNav />
+      </Collapse>
     </Box>
   );
 }
 
 const DesktopNav = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
     <Animation>
       <Stack
@@ -68,27 +73,6 @@ const DesktopNav = () => {
         p={2}
       >
         <Box>
-          {/* <Button
-          p={'7px 12px'}
-          fontSize={'md'}
-          fontWeight={500}
-          variant={'ghost'}
-          borderRadius={0}
-          border={`1px solid ${
-            colorMode === 'light' ? config.black : config.white
-          }`}
-          onClick={() => onSelectNav('#')}
-          _hover={{
-            bg: colorMode === 'light' ? config.black : config.white,
-            color: colorMode === 'light' ? config.white : config.black,
-          }}
-          _active={{
-            bg: colorMode === 'light' ? config.black : config.white,
-            color: colorMode === 'light' ? config.white : config.black,
-          }}
-        >
-          Download CV
-        </Button> */}
           <Button
             fontSize={'md'}
             fontWeight={500}
@@ -110,7 +94,6 @@ const DesktopNav = () => {
               smooth
               spy
               to={'#'}
-              offset={-100}
               duration={500}
               style={{
                 padding: '9px 12px',
@@ -146,7 +129,7 @@ const DesktopNav = () => {
                   smooth
                   spy
                   to={navItem.title}
-                  offset={-100}
+                  offset={navItem.title === 'Home' ? -250 : -70}
                   duration={500}
                   style={{
                     padding: '9px 12px',
@@ -158,17 +141,29 @@ const DesktopNav = () => {
             )}
           </Box>
         ))}
+        <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 1 }}>
+          <button onClick={toggleColorMode}>
+            {colorMode === 'light' ? (
+              <BiSolidMoon size={25} />
+            ) : (
+              <BsSun size={25} />
+            )}
+          </button>
+        </motion.button>
       </Stack>
     </Animation>
   );
 };
 
 const MobileNav = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
-    <Stack pb={4} display={{ md: 'none' }} bg={ColorSchemeToggle()}>
-      {data.navItems.map((navItem) => (
-        <Stack key={navItem.title}>
+    <Flex pb={4} display={{ lg: 'none' }} bg={ColorSchemeToggle()}>
+      <Stack>
+        {data.navItems.map((navItem) => (
           <Button
+            key={navItem.title}
             justifyContent={'end'}
             fontSize={'md'}
             fontWeight={500}
@@ -192,6 +187,7 @@ const MobileNav = () => {
               spy
               to={navItem.title}
               duration={500}
+              offset={navItem.title === 'Home' ? -999 : -450}
               style={{
                 padding: '9px 12px',
                 fontSize: `${config.style.font_text}`,
@@ -202,8 +198,19 @@ const MobileNav = () => {
               {navItem.title}
             </Link>
           </Button>
-        </Stack>
-      ))}
-    </Stack>
+        ))}
+        <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 1 }}>
+          <div style={{ textAlign: 'end', padding: '9px 12px' }}>
+            <button onClick={toggleColorMode}>
+              {colorMode === 'light' ? (
+                <BiSolidMoon size={25} />
+              ) : (
+                <BsSun size={25} />
+              )}
+            </button>
+          </div>
+        </motion.button>
+      </Stack>
+    </Flex>
   );
 };

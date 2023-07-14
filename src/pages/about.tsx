@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 
 export default function About() {
   return (
-    <Box id="About" minH={'100vh'}>
+    <Box id="About" minH={'80vh'}>
       <Box mt={config.style.marginSmall}>
         <Animation>
           <Text
