@@ -18,6 +18,7 @@ import { BsSun } from 'react-icons/bs';
 import { BiSolidMoon } from 'react-icons/bi';
 import { motion } from 'framer-motion';
 
+
 export default function NavItems() {
   const { isOpen, onToggle } = useDisclosure();
 
