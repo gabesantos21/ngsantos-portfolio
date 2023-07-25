@@ -22,7 +22,7 @@ export default function Contact() {
             // }}
             onMouseOver={(event) => TextFlip(event)}
           >
-            Contact;
+            Contact
           </Text>
         </Animation>
       </Box>

@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
-    <Box mt={config.style.marginBig} minH={'80vh'} id="Home">
+    <Box mt={config.style.marginBig} minH={'65vh'} id="Home">
       <Animation>
         <Highlight
           query="Nathaniel Gabriel Santos"
@@ -32,7 +32,7 @@ export default function Home() {
             // TODO remove text animation on hover
             onMouseOver={(e) => TextFlip(e)}
           >
-            Software Engineer;
+            Software Engineer
           </Text>
         </Animation>
       </Box>

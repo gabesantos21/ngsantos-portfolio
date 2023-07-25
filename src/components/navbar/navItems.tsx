@@ -18,7 +18,6 @@ import { BsSun } from 'react-icons/bs';
 import { BiSolidMoon } from 'react-icons/bi';
 import { motion } from 'framer-motion';
 
-
 export default function NavItems() {
   const { isOpen, onToggle } = useDisclosure();
 
@@ -139,14 +138,16 @@ const DesktopNav = () => {
             )}
           </Box>
         ))}
-        <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 1 }}>
-          <button onClick={toggleColorMode}>
-            {colorMode === 'light' ? (
-              <BiSolidMoon size={25} />
-            ) : (
-              <BsSun size={25} />
-            )}
-          </button>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 1 }}
+          onClick={toggleColorMode}
+        >
+          {colorMode === 'light' ? (
+            <BiSolidMoon size={25} />
+          ) : (
+            <BsSun size={25} />
+          )}
         </motion.button>
       </Stack>
     </Animation>
@@ -197,17 +198,19 @@ const MobileNav = () => {
             </Link>
           </Button>
         ))}
-        <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 1 }}>
-          <div style={{ textAlign: 'end', padding: '9px 12px' }}>
-            <button onClick={toggleColorMode}>
-              {colorMode === 'light' ? (
-                <BiSolidMoon size={25} />
-              ) : (
-                <BsSun size={25} />
-              )}
-            </button>
-          </div>
-        </motion.button>
+        <div style={{ textAlign: 'end', padding: '9px 12px' }}>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 1 }}
+            onClick={toggleColorMode}
+          >
+            {colorMode === 'light' ? (
+              <BiSolidMoon size={25} />
+            ) : (
+              <BsSun size={25} />
+            )}
+          </motion.button>
+        </div>
       </Stack>
     </Flex>
   );

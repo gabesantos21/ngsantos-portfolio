@@ -1,4 +1,6 @@
-import { NavItem, CardProps } from './interface';
+import { NavItem, CardProps, TechStackProps } from './interface';
+
+// DI ICONS
 import {
   DiJavascript1,
   DiReact,
@@ -8,7 +10,30 @@ import {
   DiPython,
 } from 'react-icons/di';
 
-import { BiLogoFirebase, BiLogoDjango, BiLogoPostgresql } from 'react-icons/bi';
+// BI ICONS
+import {
+  BiLogoFirebase,
+  BiLogoDjango,
+  BiLogoPostgresql,
+  BiLogoGithub,
+  BiLogoVisualStudio,
+  BiLogoFigma,
+  BiLogoBootstrap,
+} from 'react-icons/bi';
+
+// SI ICONS
+import {
+  SiMysql,
+  SiAnydesk,
+  SiPostman,
+  SiSourcetree,
+  SiFilezilla,
+  SiEclipseide,
+  SiXampp,
+  SiVite,
+  SiChakraui,
+  SiTailwindcss,
+} from 'react-icons/si';
 
 const projects: Array<CardProps> = [
   {
@@ -22,7 +47,7 @@ const projects: Array<CardProps> = [
   {
     id: 2,
     title: 'E-commerce Website',
-    tags: [DiJavascript1, DiAngularSimple, DiNodejsSmall],
+    tags: [DiAngularSimple, DiNodejsSmall],
     img: 'https://plus.unsplash.com/premium_photo-1670863088251-500151f2117b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3132&q=80',
     description:
       'A fully functional e-commerce website built with React for the frontend, Node.js and Express for the backend. It includes features such as user authentication, product listing, shopping cart functionality, and payment integration.',
@@ -61,6 +86,79 @@ const projects: Array<CardProps> = [
   },
 ];
 
+const techStack: Array<TechStackProps> = [
+  {
+    id: 1,
+    name: 'GitHub Desktop',
+    logo: BiLogoGithub,
+  },
+  {
+    id: 2,
+    name: 'Visual Studio Code',
+    logo: BiLogoVisualStudio,
+  },
+  {
+    id: 3,
+    name: 'MySQLWorkbench',
+    logo: SiMysql,
+  },
+  {
+    id: 4,
+    name: 'Figma',
+    logo: BiLogoFigma,
+  },
+  {
+    id: 5,
+    name: 'AnyDesk',
+    logo: SiAnydesk,
+  },
+  {
+    id: 6,
+    name: 'Postman',
+    logo: SiPostman,
+  },
+  {
+    id: 7,
+    name: 'Sourcetree',
+    logo: SiSourcetree,
+  },
+  {
+    id: 8,
+    name: 'FileZilla',
+    logo: SiFilezilla,
+  },
+  {
+    id: 9,
+    name: 'Eclipse',
+    logo: SiEclipseide,
+  },
+  {
+    id: 10,
+    name: 'XAMPP',
+    logo: SiXampp,
+  },
+  {
+    id: 11,
+    name: 'Vite',
+    logo: SiVite,
+  },
+  {
+    id: 12,
+    name: 'ChakraUI',
+    logo: SiChakraui,
+  },
+  {
+    id: 13,
+    name: 'Bootstrap',
+    logo: BiLogoBootstrap,
+  },
+  {
+    id: 14,
+    name: 'Tailwind',
+    logo: SiTailwindcss,
+  },
+];
+
 const navItems: Array<NavItem> = [
   {
     title: 'Download CV',
@@ -93,4 +191,5 @@ export default {
   projects,
   navItems,
   credentials,
+  techStack,
 };
