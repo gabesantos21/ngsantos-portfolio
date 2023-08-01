@@ -126,7 +126,7 @@ const DesktopNav = () => {
                   smooth
                   spy
                   to={navItem.title}
-                  offset={navItem.title === 'Home' ? -250 : -70}
+                  offset={navItem.title === 'Home' ? -343 : -70}
                   duration={500}
                   style={{
                     padding: '9px 12px',
