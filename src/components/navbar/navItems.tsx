@@ -17,6 +17,7 @@ import data from '../../config/data';
 import { BsSun } from 'react-icons/bs';
 import { BiSolidMoon } from 'react-icons/bi';
 import { motion } from 'framer-motion';
+import resume from '../../assets/resume.pdf';
 
 export default function NavItems() {
   const { isOpen, onToggle } = useDisclosure();
@@ -75,30 +76,16 @@ const DesktopNav = () => {
             fontWeight={500}
             variant={'ghost'}
             borderRadius={0}
-            p={0}
+            p={'9px 12px'}
+            border={`1px solid ${ColorSchemeToggle('inverse')}`}
             _hover={{
               bg: ColorSchemeToggle('inverse'),
               color: ColorSchemeToggle(),
             }}
           >
-            <Link
-              activeClass="active"
-              activeStyle={{
-                background: ColorSchemeToggle('inverse'),
-                color: ColorSchemeToggle(),
-                fontSize: `${config.style.font_text}`,
-              }}
-              smooth
-              spy
-              to={'#'}
-              duration={500}
-              style={{
-                padding: '9px 12px',
-                border: `1px solid ${ColorSchemeToggle('inverse')}`,
-              }}
-            >
+            <a href={resume} download="santos-resume.pdf">
               Download CV
-            </Link>
+            </a>
           </Button>
         </Box>
         {data.navItems.map((navItem) => (
@@ -160,45 +147,69 @@ const MobileNav = () => {
   return (
     <Flex pb={4} display={{ lg: 'none' }} bg={ColorSchemeToggle()}>
       <Stack>
-        {data.navItems.map((navItem) => (
+        <>
           <Button
-            key={navItem.title}
-            justifyContent={'end'}
             fontSize={'md'}
             fontWeight={500}
             variant={'none'}
             m={1.5}
+            mt={30}
             borderRadius={0}
-            p={0}
+            p={'9px 12px'}
+            size={config.style.font_text}
             _hover={{
               bg: ColorSchemeToggle('inverse'),
               color: ColorSchemeToggle(),
             }}
             zIndex={999}
           >
-            <Link
-              activeClass="active"
-              activeStyle={{
-                background: ColorSchemeToggle('inverse'),
-                color: ColorSchemeToggle(),
-              }}
-              smooth
-              spy
-              to={navItem.title}
-              duration={500}
-              offset={navItem.title === 'Home' ? -999 : -450}
-              style={{
-                padding: '9px 12px',
-                fontSize: `${config.style.font_text}`,
-                width: '100%',
-                textAlign: 'end',
-              }}
-            >
-              {navItem.title}
-            </Link>
+            <a href={resume} download="santos-resume.pdf">
+              Download CV
+            </a>
           </Button>
+        </>
+        {data.navItems.map((navItem) => (
+          <>
+            {navItem.title !== 'Download CV' && (
+              <Button
+                key={navItem.title}
+                justifyContent={'end'}
+                fontSize={'md'}
+                fontWeight={500}
+                variant={'none'}
+                m={1.5}
+                borderRadius={0}
+                p={0}
+                _hover={{
+                  bg: ColorSchemeToggle('inverse'),
+                  color: ColorSchemeToggle(),
+                }}
+                zIndex={999}
+              >
+                <Link
+                  activeClass="active"
+                  activeStyle={{
+                    background: ColorSchemeToggle('inverse'),
+                    color: ColorSchemeToggle(),
+                  }}
+                  smooth
+                  spy
+                  to={navItem.title}
+                  duration={500}
+                  offset={navItem.title === 'Home' ? -999 : -450}
+                  style={{
+                    padding: '9px 12px',
+                    fontSize: `${config.style.font_text}`,
+                    textAlign: 'end',
+                  }}
+                >
+                  {navItem.title}
+                </Link>
+              </Button>
+            )}
+          </>
         ))}
-        <div style={{ textAlign: 'end', padding: '9px 12px' }}>
+        <div style={{ textAlign: 'end', padding: '9px 20px' }}>
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 1 }}
