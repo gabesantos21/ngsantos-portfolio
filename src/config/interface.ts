@@ -12,3 +12,9 @@ export interface CardProps {
   img: string;
   description: string;
 }
+
+export interface TechStackProps {
+  id: number;
+  name: string;
+  logo: IconType;
+}

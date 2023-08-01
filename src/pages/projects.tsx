@@ -21,14 +21,14 @@ export default function Projects() {
             // }}
             onMouseOver={(event) => TextFlip(event)}
           >
-            Projects;
+            Projects
           </Text>
         </Animation>
         <Box as="section" mt={'60px'}>
           <Center>
-            <SimpleGrid columns={[1, 1, 2, 3, 3]} spacing="60px">
+            <SimpleGrid columns={[1, 1, 1, 2, 3]} spacing="60px">
               {data.projects.map((project) => (
-                <Animation>
+                <Animation key={project.id}>
                   <Card
                     title={project.title}
                     id={project.id}

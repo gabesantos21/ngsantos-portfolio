@@ -8,7 +8,7 @@ import data from '../config/data';
 
 export default function Contact() {
   return (
-    <Box id="Contact" minH={'100vh'}>
+    <Box id="Contact" minH={'90vh'}>
       <Box mt={config.style.marginSmall}>
         <Animation>
           <Text
@@ -22,7 +22,7 @@ export default function Contact() {
             // }}
             onMouseOver={(event) => TextFlip(event)}
           >
-            Contact;
+            Contact
           </Text>
         </Animation>
       </Box>

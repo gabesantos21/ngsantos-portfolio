@@ -16,14 +16,14 @@ export default function Card(data: CardProps) {
     <Box maxW="420px" bg={ColorSchemeToggle('inverse')} p="6" h={'100%'}>
       <Image
         src={data.img}
-        alt="Svartifoss Waterfall"
+        alt={data.title}
         objectFit="cover"
         mx="auto"
         h="300px"
       />
       <SimpleGrid columns={10} spacing={'5px 10px'} mt={'5'}>
         {data.tags.map((item) => (
-          <Icon as={item} color={ColorSchemeToggle()} />
+          <Icon as={item} color={ColorSchemeToggle()} key={data.id} />
         ))}
       </SimpleGrid>
       <Heading my="4" size="lg" color={ColorSchemeToggle()}>

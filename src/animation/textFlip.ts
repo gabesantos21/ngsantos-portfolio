@@ -31,7 +31,7 @@ export default function FlipTextAnimation(
         clearInterval(interval);
       }
 
-      iteration += 0.9;
+      iteration += 1.5;
     }, 30);
   }
 }
