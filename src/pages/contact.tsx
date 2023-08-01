@@ -40,16 +40,16 @@ export default function Contact() {
             textAlign={'center'}
             lineHeight={10}
           >
-            Feel free to drop me an email or sms if you'd like to connect.
-            Alternatively, you can find me on{' '}
+            {`Feel free to drop me an email or sms if you'd like to connect.
+            Alternatively, you can find me on `}
             <Link fontWeight={500} href={data.credentials.linkedIn} isExternal>
-              LinkedIn <ExternalLinkIcon />{' '}
-            </Link>{' '}
-            or{' '}
+              LinkedIn <ExternalLinkIcon />
+            </Link>
+            {` or `}
             <Link fontWeight={500} href={data.credentials.github} isExternal>
               Github <ExternalLinkIcon />
-            </Link>{' '}
-            for a quicker response. I look forward to hearing from you!
+            </Link>
+            {` for a quicker response. I look forward to hearing from you!`}
           </Text>
         </Animation>
         <Flex
