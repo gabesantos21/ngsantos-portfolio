@@ -185,6 +185,7 @@ const navItems: Array<NavItem> = [
 const credentials = {
   linkedIn: 'https://www.linkedin.com/in/nathaniel-gabriel-santos-45011b170/',
   github: 'https://github.com/gabesantos21',
+  readCV: 'https://read.cv/gabesantos21'
 };
 
 export default {

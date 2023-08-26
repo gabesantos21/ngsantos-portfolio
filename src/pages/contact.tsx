@@ -41,7 +41,7 @@ export default function Contact() {
             lineHeight={10}
           >
             {`Feel free to drop me an email or sms if you'd like to connect.
-            Alternatively, you can find me on `}
+            For a more prompt reply, you can also locate me on `}
             <Link fontWeight={500} href={data.credentials.linkedIn} isExternal>
               LinkedIn <ExternalLinkIcon />
             </Link>
@@ -49,7 +49,11 @@ export default function Contact() {
             <Link fontWeight={500} href={data.credentials.github} isExternal>
               Github <ExternalLinkIcon />
             </Link>
-            {` for a quicker response. I look forward to hearing from you!`}
+            {` To get a sense of my background, my resume is available for perusal at `}
+            <Link fontWeight={500} href={data.credentials.readCV} isExternal>
+              read.cv <ExternalLinkIcon />
+            </Link>{' '}
+            {`I look forward to hearing from you!`}
           </Text>
         </Animation>
         <Flex
